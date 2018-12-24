@@ -23,6 +23,17 @@ function updateElement($parent, newNode, oldNode, index = 0) {
             createElement(newNode),
             $parent.childNdoes[index]
         );
+    } else if (newNode.type) {
+        const newLength = newNode.children.length;
+        const oldLength = oldLength.children.length;
+        for (let i = 0; i < newLength || i  < oldLength; i++) {
+            updateElement(
+                $parent.childNdoes[index],
+                newNode.children[i],
+                oldNode.children[i],
+                i
+            );
+        }
     }
 }
 
